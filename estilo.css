@@ -1,3 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 h1 {
-    color:red;
+    color: green;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-bottom-width: 3;
+    border-bottom-style: solid;
+    margin-left: 100px;
+    border-right-width: 100px;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-left-width: 0px;
 }
