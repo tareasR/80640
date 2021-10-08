@@ -25,6 +25,7 @@ public class App {
         });
 
         before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
+
         // before((request, response) -> {
         // response.header("Access-Control-Allow-Origin", origin);
         // response.header("Access-Control-Request-Method", methods);
@@ -76,6 +77,7 @@ public class App {
         });
 
         get("/holaJson", (rq,rs)->{
+            rs.redirect("http://127.0.0.1:5500/formulario.html");
             JsonObject respuesta = new JsonObject();
             respuesta.addProperty("user", rq.queryParams("nombre"));
             respuesta.addProperty("access", "granted");
