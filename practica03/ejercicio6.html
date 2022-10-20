@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            color: white;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .padre1{background-color: gray; height: 26vh;}
+        .padre2{background-color: blue; height: 7vh;}
+        .padre3{background-color: brown; height: 60vh; width: 70vw; display: inline-block}
+        .padre4{background-color: lightcyan; height: 60vh;width: 30vw; display: inline-block}
+        .padre5{background-color: blue; height: 7vh;}
+        .superpadre{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="padre1">caja1</div>
+    <div class="padre2">caja2</div>
+    <!-- <div class="superpadre"> -->
+        <div class="padre3">caja3</div>
+        <div class="padre4">caja4</div>
+    <!-- </div> -->
+    <div class="padre5">caja5</div>
+</body>
+</html>
