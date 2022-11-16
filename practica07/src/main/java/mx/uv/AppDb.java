@@ -15,9 +15,7 @@ public class AppDb {
     public static Gson gson = new Gson();
     // base de datos en memoria
     // public static Map<String, Usuario> usuarios = new HashMap<>();
-    public static Conexion c = new Conexion();
     public static void main(String[] args) {
-        c.getConnection();
         
         port(80);
         // inicialización de datos
@@ -30,6 +28,7 @@ public class AppDb {
         before((req, res)-> res.type("application/json"));
         // get("/usuario", (req, res) -> gson.toJson(u1));
         // get("/usuarios", (req, res) -> gson.toJson(usuarios));
+        get("/usuarios", (req, res) -> gson.toJson(DAO.dameUsuarios()));
 
         post("/", (req, res)->{
             String datosFormulario = req.body();

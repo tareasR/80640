@@ -16,6 +16,7 @@ public class Conexion {
         try {
             Class.forName(DriverName);
             connection = (Connection) DriverManager.getConnection(url, username, password);
+            System.out.println("listo conectado");
         } catch (SQLException e){
             System.out.println(e);
         } catch (ClassNotFoundException e) {
