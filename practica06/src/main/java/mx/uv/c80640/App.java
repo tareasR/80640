@@ -2,7 +2,9 @@ package mx.uv.c80640;
 
 import static spark.Spark.*;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 /**
  * Hello world!
@@ -37,10 +39,19 @@ public class App {
             System.out.println(req.queryParams("email") + " " + 
                 req.queryParams("password"));
             System.out.println(req.body());
+            JsonParser parser = new JsonParser();
+            JsonElement arbol =  parser.parse(req.body());
+            JsonObject peticionDelCliente =  arbol.getAsJsonObject();
+            System.out.println(peticionDelCliente.get("email").getAsString());
+            System.out.println(peticionDelCliente.get("password"));
+            System.out.println(parser);
+
+            
             res.status(200);// Codigo de respuesta
             JsonObject oRespuesta = new JsonObject();
             oRespuesta.addProperty("msj", "Hola");
-            oRespuesta.addProperty("email", req.queryParams("email"));
+            // oRespuesta.addProperty("email", req.queryParams("email"));
+            oRespuesta.addProperty("email", peticionDelCliente.get("email").getAsString());
             return oRespuesta;
         });
 
