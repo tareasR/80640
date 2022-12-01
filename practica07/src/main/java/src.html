@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <!-- form>(label{texto$}+input#id$)*3+button:button{enviar} -->
+    <form action="">
+        <label for="">texto1</label>
+        <input type="text" id="id1">
+        <label for="">texto2</label>
+        <input type="text" id="id2">
+        <label for="">texto3</label>
+        <input type="text" id="id3">
+        <button type="button" id="enviar">enviar</button>
+    </form>
+    <script>
+        var bEnviar = document.getElementById("enviar");
+        bEnviar.addEventListener ("click", function () {
+            let id = document.getElementById ("id1").value;
+            let nombre = document.getElementById ("id2").value;
+            let password = document.getElementById ("id3").value;
+            axios.post("http://localhost/", {
+                id : id,
+                nombre : nombre,
+                password : password
+            })
+            .then (function (respuesta) {
+                console.log(respuesta)
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+        })
+        
+    </script>
+</body>
+</html>
