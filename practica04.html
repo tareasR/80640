@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practica04</title>
+    <style>
+        img {
+            box-shadow: 5px 10px 20px red;
+        }
+        figure{
+            text-align: center;
+            width: 200px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Picture</h1>
+    <div id="app"></div>
+    <script>
+        const app = document.getElementById("app")
+        const url = "https://picsum.photos/id/"
+        const size = "/200/200"
+        const Picture = (parametros) => {
+            let src=url+parametros+size
+            console.log(src)
+            return `
+                <figure>
+                    <img src="${src}">
+                    <figcaption></figcaption>
+                </figure>
+            `
+        }
+
+        app.innerHTML = Picture("10")
+        app.innerHTML += Picture("21")
+    </script>
+</body>
+</html>
