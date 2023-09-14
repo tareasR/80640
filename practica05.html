@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>practica04</title>
+    <title>practica05</title>
     <style>
         img {
             box-shadow: 5px 10px 20px red;
+            border-radius: 10% 40% 30%;
         }
         figure{
             text-align: center;
             width: 200px;
             display: inline-block;
+        }
+        img.redonda {
+            border-radius: 50%;
         }
     </style>
 </head>
@@ -33,8 +37,17 @@
             `
         }
 
-        app.innerHTML = Picture({id:"10",nombre:"John"})
-        app.innerHTML += Picture({id:"21", nombre:"Jane"})
+        app.innerHTML = Picture({id:"1",nombre:"John"})
+        app.innerHTML += Picture({id:"2", nombre:"Jane"})
+        app.innerHTML += Picture({id:"3", nombre:"Joane"})
+
+        const lista = document.querySelectorAll("img")
+        for (let i = 0; i < lista.length; i++) {
+            lista[i].addEventListener("click", () => {
+                // lista[i].style.borderRadius = "50%"
+                lista[i].classList.toggle("redonda")
+            });            
+        }
     </script>
 </body>
 </html>
