@@ -1,0 +1,9 @@
+h1 {
+  text-align: center;
+}
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+  box-shadow: 15px 20px 10px;
+}
