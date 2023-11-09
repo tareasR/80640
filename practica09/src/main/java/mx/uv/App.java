@@ -38,7 +38,7 @@ public class App
             (request, response)-> "<h1>Que tal mundo!</h1>"
         );
         get("/ruta3",
-            (request, response)-> "{'alumno':'john','matricula':'s0001','carrera':'tc'}"
+            (request, response)-> "{\"alumno\":\"john\",\"matricula\":\"s0001\",\"carrera\":\"tc\"}"
         );
     }
 }
