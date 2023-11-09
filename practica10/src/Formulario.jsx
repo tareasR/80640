@@ -11,23 +11,38 @@ function Formulario (props) {
 
     const hacerPeticion = async () => {
         try {
-            const response = await axios.get('http://localhost:4567')
+            const response = await axios.get('http://localhost:4567/ruta3')
+            console.log(response.data)
+            return response.data
         } catch (error) {
             throw error
         }
     }
 
-    const procesarFormulario = (evento) => {
+    const procesarFormulario = async (evento) => {
         evento.preventDefault()
         console.log("datos recuperados del formulario: ", datosFormulario)
         setCargando(true)
         try {
-            const response = hacerPeticion()
+            const response = await hacerPeticion()
+            console.log("salida",response.alumno)
             setCargando(false)
+            // validar los datos formulario contra lo del backend
+            if (datosFormulario.nombre === response.alumno) {
+                console.log('ok el usuario existe')
+            } else {
+                console.log('error el usuario no existe')
+            }
         } catch (error) {
             console.log('error', error)
             setCargando(false)
         }
+    }
+
+    const cambiosFomulario = (evento) => {
+         //console.log(evento.target)
+        const {name, value} = evento.target
+        setDatosFormulario( { ...datosFormulario, [name]:value} )
     }
 
     return (
@@ -35,10 +50,10 @@ function Formulario (props) {
             <form onSubmit={ procesarFormulario }>
                 <h1>Inicio de Sesión</h1>
                 <Box m={5}>
-                    <TextField label="Nombre:" variant="outlined" fullWidth></TextField>
+                    <TextField label="Nombre:" variant="outlined" fullWidth onChange={ cambiosFomulario } name="nombre" value={datosFormulario.nombre} ></TextField>
                 </Box>
                 <Box m={5}>
-                    <TextField label="Contraseña:" variant="outlined" fullWidth></TextField>
+                    <TextField label="Contraseña:" variant="outlined" fullWidth onChange={ cambiosFomulario } name="password" value={datosFormulario.password} ></TextField>
                 </Box>
                 <Box m={5}>
                     <Button variant="contained" type="submit" color="primary" fullWidth disabled={Cargando}>Inicar Sesión</Button>
